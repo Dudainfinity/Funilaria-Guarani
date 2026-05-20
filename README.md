@@ -35,18 +35,38 @@ Site desenvolvido para captação de clientes e solicitação de orçamentos via
 
 ```
 Funilaria_Guarani/
-├── index.html        # Pagina principal
-├── style.css         # Estilos globais
-├── script.js         # Logica de interatividade
-├── sitemap.xml       # Mapa do site para SEO
-├── robots.txt        # Diretivas para crawlers
-├── CNAME             # Dominio customizado (funilariaguarani.com)
-└── img/              # Imagens e videos do site
+├── index.html                        # Pagina principal
+├── style.css                         # Estilos globais
+├── script.js                         # Logica de interatividade
+├── sitemap.xml                       # Mapa do site para SEO
+├── robots.txt                        # Diretivas para crawlers
+├── CNAME                             # Dominio customizado (funilariaguarani.com)
+├── .gitignore                        # Arquivos ignorados pelo Git
+├── .github/
+│   └── workflows/
+│       └── deploy.yml                # Pipeline de deploy automatico via FTP
+└── img/                              # Imagens e videos do site
 ```
 
 ## Deploy
 
-O deploy e feito automaticamente via **GitHub Actions** para o **GitHub Pages** a cada push na branch `main`. O dominio customizado `funilariaguarani.com` e configurado pelo arquivo `CNAME`.
+O deploy e feito automaticamente via **GitHub Actions** a cada push na branch `main`. O workflow `.github/workflows/deploy.yml` verifica os arquivos principais e envia o site para o servidor via FTP usando as secrets configuradas no repositorio:
+
+| Secret | Descricao |
+|---|---|
+| `FTP_SERVER` | Endereco do servidor FTP |
+| `FTP_USERNAME` | Usuario FTP |
+| `FTP_PASSWORD` | Senha FTP |
+
+O dominio customizado `funilariaguarani.com` e configurado pelo arquivo `CNAME`.
+
+## .gitignore
+
+Arquivos e pastas ignorados pelo Git:
+
+- `.DS_Store`, `Thumbs.db` — arquivos de sistema operacional
+- `.vscode/`, `.idea/` — configuracoes de editor
+- `*.tmp`, `*.zip` — arquivos temporarios e compactados
 
 ## Contato
 
