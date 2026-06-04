@@ -90,16 +90,15 @@ button {
   font-size: 0.82rem;
 }
 
-.brand-badge {
-  width: 50px;
-  height: 50px;
-  border-radius: 18px;
-  display: grid;
-  place-items: center;
-  color: var(--white);
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-2) 100%);
-  box-shadow: var(--shadow);
+.logo-img {
+  width: 72px;
+  height: 56px;
+  max-width: 72px;
+  max-height: 56px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 12px;
 }
 
 .nav-links {
@@ -1081,6 +1080,13 @@ button {
 
   .nav > .btn {
     display: none;
+  }
+
+  .logo-img {
+    width: 56px;
+    height: 44px;
+    max-width: 56px;
+    max-height: 44px;
   }
 
   .brand strong {
