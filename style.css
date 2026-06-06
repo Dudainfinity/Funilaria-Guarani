@@ -97,8 +97,7 @@ button {
   display: block;
   flex-shrink: 0;
   box-sizing: border-box;
-  padding: 5px 8px;
-  background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-2) 100%);
+  background: var(--green-dark);
   border-radius: 13px;
   box-shadow: var(--shadow);
 }
@@ -1087,7 +1086,6 @@ button {
   .logo-img {
     width: 64px;
     height: 38px;
-    padding: 4px 6px;
     border-radius: 10px;
   }
 
