@@ -1130,6 +1130,7 @@ button {
 
   .hero-visual {
     display: block;
+    margin-top: 8px;
   }
 
   .hero-mini-grid {
