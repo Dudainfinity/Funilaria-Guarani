@@ -1142,8 +1142,23 @@ button {
     margin-top: 8px;
   }
 
-  .hero-mini-grid {
+  /* No celular o video substitui o texto de apresentacao */
+  .hero-lead {
     display: none;
+  }
+
+  .hero-mini-grid {
+    display: block;
+    margin-top: 12px;
+  }
+
+  .mini-info-card {
+    display: none;
+  }
+
+  .mini-card {
+    min-height: 260px;
+    border-radius: var(--radius-lg);
   }
 
   .main-photo {
