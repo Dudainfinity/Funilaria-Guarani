@@ -303,6 +303,13 @@ button {
   min-height: 180px;
 }
 
+.mini-card video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .mini-info-card {
   min-height: 180px;
   padding: 24px;
