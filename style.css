@@ -148,17 +148,11 @@ button {
   transform: translateY(-2px);
 }
 
-.btn-primary {
+.btn-primary,
+.btn-secondary {
   background: linear-gradient(135deg, var(--green) 0%, var(--green-2) 100%);
   color: var(--white);
   box-shadow: 0 14px 34px rgba(15, 122, 61, 0.22);
-}
-
-.btn-secondary {
-  background: var(--green-dark);
-  color: var(--white);
-  border: 1px solid var(--green-dark);
-  box-shadow: 0 14px 34px rgba(10, 79, 41, 0.20);
 }
 
 .btn-light {
