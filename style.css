@@ -155,9 +155,10 @@ button {
 }
 
 .btn-secondary {
-  background: var(--white);
-  color: var(--green-dark);
-  border: 1px solid var(--border);
+  background: var(--green-dark);
+  color: var(--white);
+  border: 1px solid var(--green-dark);
+  box-shadow: 0 14px 34px rgba(10, 79, 41, 0.20);
 }
 
 .btn-light {
@@ -1145,7 +1146,7 @@ button {
   }
 
   /* No celular o video substitui os textos de apresentacao
-     e sobe para o lugar deles, logo abaixo dos botoes */
+     e aparece logo abaixo da foto principal */
   .hero-lead,
   .hero-stats {
     display: none;
@@ -1153,7 +1154,6 @@ button {
 
   .hero-mini-grid {
     display: block;
-    order: -1;
   }
 
   .mini-info-card {
