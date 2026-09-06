@@ -250,6 +250,75 @@ function setupCarousels() {
   });
 }
 
+function setupGalleryLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  const image = document.getElementById('lightboxImg');
+  const closeBtn = document.getElementById('lightboxClose');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  const counter = document.getElementById('lightboxCount');
+  if (!lightbox || !image) return;
+
+  const photos = Array.from(document.querySelectorAll('#galeria .gallery-item[data-src]'));
+  if (!photos.length) return;
+
+  let current = 0;
+
+  function show(index) {
+    current = (index + photos.length) % photos.length;
+    const figure = photos[current];
+    const thumb = figure.querySelector('img');
+    image.src = figure.dataset.src;
+    image.alt = thumb ? thumb.alt : '';
+    counter.textContent = `${current + 1} / ${photos.length}`;
+  }
+
+  function open(index) {
+    show(index);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    trackEvent('abre_galeria', { foto: current + 1 });
+  }
+
+  function close() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    image.src = '';
+  }
+
+  photos.forEach((figure, index) => {
+    figure.addEventListener('click', () => open(index));
+  });
+
+  prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn.addEventListener('click', () => show(current + 1));
+  closeBtn.addEventListener('click', close);
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) close();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+
+  // arrastar para o lado no celular
+  let startX = null;
+  lightbox.addEventListener('touchstart', (event) => {
+    startX = event.changedTouches[0].clientX;
+  }, { passive: true });
+
+  lightbox.addEventListener('touchend', (event) => {
+    if (startX === null) return;
+    const distance = event.changedTouches[0].clientX - startX;
+    if (Math.abs(distance) > 45) show(distance < 0 ? current + 1 : current - 1);
+    startX = null;
+  }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   applyWhatsAppLinks();
   setupMeasurementModal();
@@ -257,6 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupMobileMenu();
   setupRevealAnimation();
   setupCarousels();
+  setupGalleryLightbox();
   setupHeaderShadow();
   setupMapTracking();
 });

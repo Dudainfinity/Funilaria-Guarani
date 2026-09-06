@@ -518,6 +518,67 @@ button {
   background: rgba(255,255,255,0.24);
 }
 
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  border: none;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.lightbox-prev {
+  left: 18px;
+}
+
+.lightbox-next {
+  right: 18px;
+}
+
+.lightbox-count {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: rgba(255,255,255,0.12);
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+
+@media (max-width: 780px) {
+  .lightbox-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .lightbox-prev {
+    left: 8px;
+  }
+
+  .lightbox-next {
+    right: 8px;
+  }
+
+  /* no celular a foto usa a tela quase toda */
+  .lightbox-img {
+    max-width: 100%;
+  }
+}
+
 .cta-box {
   background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
   color: var(--white);
