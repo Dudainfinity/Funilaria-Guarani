@@ -343,7 +343,6 @@ button {
   max-width: 760px;
 }
 
-.service-grid,
 .catalog-grid,
 .gallery-grid {
   display: grid;
@@ -351,7 +350,7 @@ button {
 }
 
 .service-grid {
-  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
 }
 
 .catalog-grid {
@@ -1127,7 +1126,6 @@ button {
 @media (max-width: 1080px) {
   .hero-grid,
   .cta-box,
-  .service-grid,
   .catalog-grid,
   .contact-grid {
     grid-template-columns: 1fr 1fr;
@@ -1268,7 +1266,6 @@ button {
   }
 
   /* Grids gerais */
-  .service-grid,
   .catalog-grid,
   .cta-box,
   .contact-grid {
