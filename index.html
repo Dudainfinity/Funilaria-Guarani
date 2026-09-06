@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260906f" />
+  <link rel="stylesheet" href="style.css?v=20260906g" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/favicon.png?v=20260605b" />
@@ -194,48 +194,60 @@
             <h2>Por que escolher a Funilaria Guarani?</h2>
           </div>
         </div>
-        <div class="diff-grid">
-          <div class="diff-item reveal">
+        <div class="carousel reveal" data-carousel>
+          <div class="carousel-track diff-grid">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M6 20V10l6-6 6 6v10"/><path d="M10 20v-6h4v6"/></svg>
             </span>
             <h3>Fabricação sob medida</h3>
             <p>Peças produzidas conforme as medidas exatas do seu projeto.</p>
           </div>
-          <div class="diff-item reveal delay-1">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.71 3.18 2 2 0 0 1 3.68 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.5 5.5l1.97-1.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </span>
             <h3>Atendimento rápido no WhatsApp</h3>
             <p>Orçamento direto pelo WhatsApp, sem burocracia.</p>
           </div>
-          <div class="diff-item reveal delay-2">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
             </span>
             <h3>Instalação profissional</h3>
             <p>Equipe experiente para instalação com acabamento de qualidade.</p>
           </div>
-          <div class="diff-item reveal">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </span>
             <h3>Material resistente</h3>
             <p>Aço galvanizado e alumínio de alta durabilidade para longa vida útil.</p>
           </div>
-          <div class="diff-item reveal delay-1">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </span>
             <h3>Experiência no mercado</h3>
             <p>Anos de atuação garantindo qualidade e confiança aos clientes.</p>
           </div>
-          <div class="diff-item reveal delay-2">
+          <div class="diff-item">
             <span class="diff-icon">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </span>
             <h3>Atendimento em Belo Horizonte e região</h3>
             <p>Atendemos toda a região com agilidade e compromisso.</p>
+            </div>
+          </div>
+
+          <div class="carousel-nav">
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Ver anteriores">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="carousel-dots" data-carousel-dots></div>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Ver próximos">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
           </div>
         </div>
       </div>

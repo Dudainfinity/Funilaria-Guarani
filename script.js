@@ -196,12 +196,67 @@ function setupMapTracking() {
   });
 }
 
+function setupCarousels() {
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const dotsBox = carousel.querySelector('[data-carousel-dots]');
+    const prev = carousel.querySelector('[data-carousel-prev]');
+    const next = carousel.querySelector('[data-carousel-next]');
+    const items = Array.from(track.children);
+    if (!items.length) return;
+
+    const perPage = 2;
+    const pages = Math.ceil(items.length / perPage);
+    let current = 0;
+
+    const dots = Array.from({ length: pages }, (_, page) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', `Ir para o grupo ${page + 1}`);
+      dot.addEventListener('click', () => goTo(page));
+      dotsBox.appendChild(dot);
+      return dot;
+    });
+
+    function goTo(page) {
+      const target = items[Math.min(page * perPage, items.length - 1)];
+      track.scrollTo({ left: target.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    }
+
+    function currentPage() {
+      const step = items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth;
+      return Math.min(pages - 1, Math.round(track.scrollLeft / (step * perPage)));
+    }
+
+    function refresh() {
+      current = currentPage();
+      dots.forEach((dot, page) => dot.classList.toggle('is-active', page === current));
+      prev.disabled = current === 0;
+      next.disabled = current === pages - 1;
+    }
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+
+    let ticking;
+    track.addEventListener('scroll', () => {
+      clearTimeout(ticking);
+      ticking = setTimeout(refresh, 80);
+    });
+    window.addEventListener('resize', refresh);
+
+    refresh();
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   applyWhatsAppLinks();
   setupMeasurementModal();
   setupContactForm();
   setupMobileMenu();
   setupRevealAnimation();
+  setupCarousels();
   setupHeaderShadow();
   setupMapTracking();
 });

@@ -620,10 +620,84 @@ button {
   line-height: 1.6;
 }
 
-.diff-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+/* Carrossel — mostra 2 cards por vez e desliza para os proximos */
+.carousel {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
   gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 4px;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track > * {
+  flex: 0 0 calc((100% - 20px) / 2);
+  scroll-snap-align: start;
+}
+
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.carousel-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--green-dark);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.carousel-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.carousel-dot.is-active {
+  width: 26px;
+  background: var(--green);
+}
+
+.diff-grid {
+  align-items: stretch;
 }
 
 .diff-item {
@@ -1055,7 +1129,6 @@ button {
   .cta-box,
   .service-grid,
   .catalog-grid,
-  .diff-grid,
   .contact-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1197,10 +1270,22 @@ button {
   /* Grids gerais */
   .service-grid,
   .catalog-grid,
-  .diff-grid,
   .cta-box,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Carrossel mais compacto no celular */
+  .carousel-track {
+    gap: 12px;
+  }
+
+  .carousel-track > * {
+    flex-basis: calc((100% - 12px) / 2);
+  }
+
+  .diff-item {
+    padding: 20px 16px;
   }
 
   /* Modal */
