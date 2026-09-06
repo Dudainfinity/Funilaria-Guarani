@@ -1138,18 +1138,22 @@ button {
   }
 
   .hero-visual {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     margin-top: 8px;
   }
 
-  /* No celular o video substitui o texto de apresentacao */
-  .hero-lead {
+  /* No celular o video substitui os textos de apresentacao
+     e sobe para o lugar deles, logo abaixo dos botoes */
+  .hero-lead,
+  .hero-stats {
     display: none;
   }
 
   .hero-mini-grid {
     display: block;
-    margin-top: 12px;
+    order: -1;
   }
 
   .mini-info-card {
@@ -1177,15 +1181,6 @@ button {
     line-height: 1.65;
     max-width: 100%;
     margin-bottom: 20px;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .hero-stats article {
-    padding: 12px 14px;
   }
 
   /* Botões hero e forms — largura total */
